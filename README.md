@@ -1,4 +1,4 @@
-Hello I have uploaded the website using vercel below is the link to it. I hope you enjoy and please feel free to give suggestions!
+Hello I have uploaded the website using vercel. Below is the link to it. I hope you enjoy and please feel free to give suggestions!
 
 https://portfolio-website-raymond-zhangs-projects-651e79cc.vercel.app
 
