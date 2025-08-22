@@ -49,6 +49,7 @@ const Popup = ({
         ${styles.PopupWrapper}
         ${isOpen && !isMinimised ? styles.OpenPopupWrapper : ""}
         ${isMinimised ? styles.MinimisedPopupWrapper: ""}
+        ${active === `popup-${index}` ? styles.ActivePopupWrapper : ""}
     `} 
     style={{
         top: `calc(40px + (${index} * 12px))`,
