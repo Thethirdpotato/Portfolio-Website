@@ -3,6 +3,7 @@ import Image from "next/image";
 import { useAppContext } from "@/app/utils/context";
 import { useState } from 'react';
 import { MdClose } from "react-icons/md";
+import Popup from "@/app/components/Popup"
 
 interface Props{
     isOpen: boolean;
