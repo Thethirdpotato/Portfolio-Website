@@ -4,8 +4,21 @@
     display: none;
     flex-direction: column;
 
+    width: 337px;
+    height: 154px;
+
+    
+}
+
+.Titlebar{
+    position: sticky;
+    top: 0;
 }
 
 .OpenPopupWrapper{
-    
+    display: flex;
+}
+
+.ActivePopupWrapper{
+    z-index: 2;
 }
