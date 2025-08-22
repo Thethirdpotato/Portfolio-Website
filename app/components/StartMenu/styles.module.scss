@@ -1,0 +1,128 @@
+.StartMenuWrapper{
+    display: none;
+
+    width:207px;
+    height: 403px;
+
+    position:absolute;
+    bottom:43px;
+    left:0px;
+
+    box-shadow:
+    inset -2px -2px 0 var(--color-dark-grey),
+    inset  2px  2px 0 var(--color-white),
+    inset -4px -4px 0 var(--color-grey);
+
+    background-color: var(--color-light-grey);
+}
+
+.Open{
+    display:flex;
+}
+
+.NameBoard{
+    width:397px;
+    height:35px;
+    line-height: 35px;
+
+    rotate: -90deg;
+    position: absolute;
+    right: -11px;
+    top:183px;
+    
+    font-size: 35;
+
+    background-color: var(--color-grey);
+    color: var(--color-light-grey);
+
+    span{
+        color: var(--color-white);
+    }
+}
+
+.MenuItems{
+    display:flex;
+    flex-direction: column;
+
+    position: absolute;
+    top: 295px;
+    left: 40px;
+
+    li{
+        display: flex;
+
+        &:hover{
+            outline: 2px dashed var(--color-dark-grey);
+        }
+    }
+
+    button{
+        display:flex;
+        align-items: center;
+
+        width:160px;
+        height:52px;
+        gap: 12px;
+        padding: 0 0 0 5px;
+
+        background: transparent;
+        border: none;
+
+        font-size: inherit;
+
+        cursor: pointer;
+
+        image{
+            height: 43px;
+            width: 43px;
+        }
+    }
+}
+
+.SeparationLine{
+    width: 164px;
+    height: 5px;
+
+    background-color: var(--color-dark-grey);
+
+    box-shadow:
+    inset 0px -2px 0 var(--color-white);
+
+    position: absolute;
+    top: 290px;
+    left: 37px;
+}
+
+.TextBox{
+    display:flex;
+
+    width: 134px;
+    height: 80px;
+
+    box-shadow:
+    inset -2px -2px 0 var(--color-dark-grey),
+    inset  2px  2px 0 var(--color-white),
+    inset -4px -4px 0 var(--color-grey);
+
+    position: absolute;
+    top: 5px;
+    left: 42px;
+
+    font-size: 14px;
+    line-height: 12px;
+
+    p{
+        padding: 5px 0 0 5px;
+    }
+}
+
+.Clippy{
+    position: absolute;
+    top: 55px;
+    left: 70px;
+
+    cursor: pointer;
+
+    width:133px;
+    height: 236px;
+}
