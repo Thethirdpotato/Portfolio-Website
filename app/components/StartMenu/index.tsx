@@ -3,14 +3,14 @@ import Image from "next/image";
 import { useAppContext } from "@/app/utils/context";
 import { useState } from 'react';
 import { MdClose } from "react-icons/md";
-import Popup from "@/app/components/Popup"
 
 interface Props{
     isOpen: boolean;
 }
 
 const StartMenu = ({isOpen}: Props) =>{
-    const { openList, setOpenList } = useAppContext();
+    const { openList, setOpenList, showNextError} = useAppContext();
+    const [imageSrc, setImageSrc] = useState('/Images/ClippyWave.gif')
 
     const handleOpen = (name: string) => {
         openList.includes(name)
@@ -18,13 +18,9 @@ const StartMenu = ({isOpen}: Props) =>{
         : setOpenList([...openList, name])
     };
 
-    const [imageSrc, setImageSrc] = useState('/Images/ClippyWave.gif')
-
     const handleClick = () => {
         setImageSrc('/Images/ClippyJump.gif');
     }
-
-    const [openPopup, setOpenPopup] = useState(false);
 
     return(
         <div className={`${styles.StartMenuWrapper} ${isOpen ? styles.Open : ""}`}>
@@ -61,7 +57,7 @@ const StartMenu = ({isOpen}: Props) =>{
                     </button>
                 </li>
                 <li>
-                    <button onClick={() => setOpenPopup(true)}>
+                    <button onClick={showNextError}>
                         <Image
                             src="/Images/ShutDown.png"
                             alt="Shut Down Icon"
@@ -72,26 +68,6 @@ const StartMenu = ({isOpen}: Props) =>{
                     </button>
                 </li>
             </ul>
-            {
-                openPopup &&
-                <div className="PopupWrapper"> 
-                    <header className="TitleBarWrapper">
-                        <h2>System Error</h2>
-                        <button onClick={() => setOpenPopup(false)}>
-                            <MdClose/>
-                        </button>
-                    </header>
-                    <Image
-                        src="/Images/Error.png"
-                        alt="Error Icon"
-                        height={32}
-                        width={32}
-                    />
-                    <button onClick={() => setOpenPopup(false)}>
-                        OK
-                    </button>
-                </div>
-            }
         </div>
     )
 }

@@ -1,7 +1,10 @@
-import Image from "next/image";
+import DesktopPopups from "./components/DesktopPopups";
 
 export default function Home() {
+
   return (
-    <h1>Hello</h1>
+    <>
+    <DesktopPopups />
+    </>
   );
 }

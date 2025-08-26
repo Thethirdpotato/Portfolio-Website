@@ -10,8 +10,9 @@
 
     box-shadow:
     inset -2px -2px 0 var(--color-dark-grey),
-    inset  2px  2px 0 var(--color-white),
-    inset -4px -4px 0 var(--color-grey);
+    inset  2px  2px 0 var(--color-light-grey),
+    inset -4px -4px 0 var(--color-grey),
+    inset 4px 4px 0 var(--color-white);
 
     background-color: var(--color-light-grey);
 }
@@ -21,14 +22,14 @@
 }
 
 .NameBoard{
-    width:397px;
+    width:396px;
     height:35px;
     line-height: 35px;
 
     rotate: -90deg;
     position: absolute;
-    right: -11px;
-    top:183px;
+    right: -13px;
+    top:185px;
     
     font-size: 35;
 

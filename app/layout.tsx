@@ -25,10 +25,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={MSSans.className}>
         <AppContextProvider>
-          <main className={styles.AppWrapper}>
-            {children}
-            <Taskbar/>
-          </main>
+            <main id="app-wrapper" className={styles.AppWrapper}>
+              {children}
+              <Taskbar />
+            </main>
         </AppContextProvider>
       </body>
     </html>

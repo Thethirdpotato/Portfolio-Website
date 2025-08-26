@@ -4,9 +4,7 @@ import { useEffect, useRef, useState} from "react";
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import TaskbarItems from "@/app/components/TaskbarItems";
-console.log("TaskbarItems import:", TaskbarItems);
 import StartMenu from "@/app/components/StartMenu";
-
 
 const Taskbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +45,10 @@ const Taskbar = () => {
 
     return (
     <footer className={styles.TaskbarWrapper}>
-        <button className={`${styles.StartButton} ${isOpen ? styles.Pressed : ""}`}
+        <button className={`
+        ${styles.StartButton} 
+        ${isOpen ? styles.Pressed : ""}
+        `}
   onClick={() => setIsOpen(!isOpen)}>
             <img className={styles.Logo} src={"/Images/BetterLogo.png"}></img>
             START

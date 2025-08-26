@@ -4,10 +4,18 @@
     display: none;
     flex-direction: column;
 
+    box-shadow:
+    inset -2px -2px 0 var(--color-dark-grey),
+    inset  2px  2px 0 var(--color-light-grey),
+    inset -4px -4px 0 var(--color-grey),
+    inset 4px 4px 0 var(--color-white);
+    background-color: var(--color-light-grey);
+
     width: 337px;
     height: 154px;
 
-    
+    transition: 0.01s;
+    z-index: 100;
 }
 
 .Titlebar{
@@ -19,6 +27,7 @@
     display: flex;
 }
 
-.ActivePopupWrapper{
-    z-index: 2;
+.ActivePopupWrapper {
+  z-index: 1000;
+  border: 3px solid red;
 }

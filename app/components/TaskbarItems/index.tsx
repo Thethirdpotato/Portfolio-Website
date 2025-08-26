@@ -1,37 +1,39 @@
 import { useAppContext } from "@/app/utils/context";
 import styles from "./styles.module.scss";
-import { useEffect, useState} from "react";
 
 const TaskbarItems = () => {
-    const {openList, minimisedList, setMinimisedList, active, setActive} = useAppContext();
+    const {openList, minimisedList, setMinimisedList, active, setActive, openPopups} = useAppContext();
 
-    const handleMinimise = (title: string) => {
-        if (active == title){
-            if(active === title) {
-                if(minimisedList.includes(title)){
-                    setMinimisedList(minimisedList.filter(item => item !== title));
-                    setActive(title);
-                } else {
-                    setMinimisedList([...minimisedList, title]);
-                    setActive("");
-                }
-            }else {
-                setMinimisedList(minimisedList.filter(item => item !== title));
-                setActive(title);
-            }
-        }
-    }
+
+    const combinedItemsMap = new Map<string, string>();
+    openList.forEach((id) => combinedItemsMap.set(id, id));
+    openPopups.forEach((p) => combinedItemsMap.set(p.id, p.id));
+    const combinedItems = Array.from(combinedItemsMap.entries()).map(([id, label]) => ({ id, label }));
+
+    const handleMinimise = (id: string) => {
+  setMinimisedList(prev => 
+    prev.includes(id) 
+      ? prev.filter(item => item !== id) // restore
+      : [...prev, id]                     // minimize
+  );
+
+  // Set active only if restoring, or clear if minimizing
+  setActive(prev => (prev === id && minimisedList.includes(id) ? id : prev === id ? "" : prev));
+};
 
     return(
-        <div className={styles.TaskbarWrapper}>
-            {openList.map((item,index) => (
-                <button 
-                className={`${styles.TaskbarItem} ${active === item ? styles.Pressed : ""}`}
-                key={index}
-                onClick={() => (handleMinimise(item))}>
-                    {item}
-                </button>
-            ))}
+        <div className={styles.TaskbarItemsWrapper}>
+            {combinedItems.map((item) => (
+        <button
+          key={item.id}
+          className={`${styles.TaskbarItem} ${
+            !minimisedList.includes(item.id) ? styles.Pressed : ""
+          }`}
+          onClick={() => handleMinimise(item.id)}
+        >
+          {item.label}
+        </button>
+      ))}
         </div>
     );
 }
