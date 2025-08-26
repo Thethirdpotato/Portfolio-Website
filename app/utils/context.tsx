@@ -17,6 +17,10 @@ interface AppContextType {
   active: string;
   setActive: React.Dispatch<React.SetStateAction<string>>;
   showNextError: () => void;
+  volume: number;
+  setVolume: (v: number) => void;
+  isMuted: boolean;
+  setIsMuted: (v: boolean) => void;
 }
 
 const popupSequence = ["error-1", "error-2", "error-3"];
@@ -29,15 +33,17 @@ export const AppContextProvider = ({ children }: { children?: ReactNode }) => {
   const [minimisedList, setMinimisedList] = useState<string[]>([]);
   const [active, setActive] = useState<string>("");
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [volume, setVolume] = useState(0.5);
+  const [isMuted, setIsMuted] = useState(false);
 
   const popupContent = (id: string) => {
     switch (id) {
       case "error-1":
-        return <p>Error 1: Something went wrong!</p>;
+        return <p>I’m warning you don’t click me again!</p>;
       case "error-2":
-        return <p>Error 2: Another issue detected.</p>;
+        return <p>Hey stop that!</p>;
       case "error-3":
-        return <p>Error 3: System shutting down.</p>;
+        return <p>That’s my no-no square don’t touch that!</p>;
       default:
         return <p>Unknown error</p>;
     }
@@ -79,6 +85,10 @@ export const AppContextProvider = ({ children }: { children?: ReactNode }) => {
         active,
         setActive,
         showNextError,
+        volume,
+        setVolume, 
+        isMuted, 
+        setIsMuted
       }}
     >
       {children}

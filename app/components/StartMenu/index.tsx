@@ -2,21 +2,23 @@ import styles from "./styles.module.scss";
 import Image from "next/image";
 import { useAppContext } from "@/app/utils/context";
 import { useState } from 'react';
-import { MdClose } from "react-icons/md";
+import useSound from "use-sound";
 
 interface Props{
     isOpen: boolean;
 }
 
 const StartMenu = ({isOpen}: Props) =>{
-    const { openList, setOpenList, showNextError} = useAppContext();
+    const {showNextError, volume, isMuted} = useAppContext();
     const [imageSrc, setImageSrc] = useState('/Images/ClippyWave.gif')
 
-    const handleOpen = (name: string) => {
-        openList.includes(name)
-        ? setOpenList(openList)
-        : setOpenList([...openList, name])
-    };
+    const [playShutDown] = useSound("/sounds/error.mp3", {
+        volume: isMuted ? 0 : volume,
+    });
+
+    const [playConfetti] = useSound("/sounds/confetti.mp3", {
+        volume: isMuted ? 0 : volume,
+    });
 
     const handleClick = () => {
         setImageSrc('/Images/ClippyJump.gif');
@@ -38,9 +40,13 @@ const StartMenu = ({isOpen}: Props) =>{
                 <Image
                 src={imageSrc}
                 alt="Clippy"
-                onClick={handleClick}
+                onClick={() => {
+                    handleClick();
+                    playConfetti();
+                }}
                 width={133}
                 height={236}
+                unoptimized
             />
             </button>
             <hr className={styles.SeparationLine}></hr>
@@ -57,7 +63,10 @@ const StartMenu = ({isOpen}: Props) =>{
                     </button>
                 </li>
                 <li>
-                    <button onClick={showNextError}>
+                    <button onClick={() => {
+                        showNextError();
+                        playShutDown();
+                    }}>
                         <Image
                             src="/Images/ShutDown.png"
                             alt="Shut Down Icon"

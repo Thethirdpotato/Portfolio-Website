@@ -15,6 +15,7 @@
     inset 4px 4px 0 var(--color-white);
 
     background-color: var(--color-light-grey);
+    image-rendering: pixelated;
 }
 
 .Open{
@@ -31,7 +32,7 @@
     right: -13px;
     top:185px;
     
-    font-size: 35;
+    font-size: 35px;
 
     background-color: var(--color-grey);
     color: var(--color-light-grey);

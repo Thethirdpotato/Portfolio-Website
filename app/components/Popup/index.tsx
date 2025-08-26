@@ -4,6 +4,8 @@ import Image from "next/image";
 import { ReactNode, useEffect, useState, useRef } from "react";
 import Draggable from "react-draggable";
 import { useAppContext } from "@/app/utils/context";
+import { MdClose } from "react-icons/md";
+
 
 interface Props {
     children: ReactNode;
@@ -65,22 +67,22 @@ const Popup = ({
                     setActive(id);
                 }}
                 >
-                    <div className="Titlebar">
+                    <div className={styles.Titlebar}>
                         <h2>System Error</h2>
-                        <button className="CloseButton" onClick={handleClose}>
-                            X
+                        <button className={styles.CloseButton} onClick={handleClose}>
+                            <MdClose />
                         </button>
                     </div>
-                    <div className="body">
+                    <div className={styles.body}>
                         <Image
                             src={id === "error-3" ? "/Images/ShyShutDown.png" : "/Images/Error.png"}
                             alt="Error Icon"
-                            height={32}
-                            width={32}
+                            height={43}
+                            width={43}
                         />
                         {children}
                     </div>
-                    <button className="CancelButton" onClick={handleClose}>
+                    <button className={styles.CancelButton} onClick={handleClose}>
                         OK
                     </button>
             </div>

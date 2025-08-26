@@ -2,6 +2,7 @@
     position: absolute;
 
     display: none;
+    align-items: center;
     flex-direction: column;
 
     box-shadow:
@@ -14,13 +15,86 @@
     width: 337px;
     height: 154px;
 
+    padding: 5px;
+
     transition: 0.01s;
-    z-index: 100;
+    z-index: 1;
 }
 
 .Titlebar{
     position: sticky;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
     top: 0;
+
+    width: 100%;
+    height: 23px;
+    padding: 2px;
+
+    background-color: var(--color-dark-blue);
+    color: var(--color-white);
+}
+
+.body{
+    position: absolute;
+    top: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 300px;
+
+    padding: 10px;
+
+    image-rendering: pixelated;
+
+    p{
+        font-size: inherit;
+        padding: 10px;
+    }
+}
+
+.CloseButton{
+    box-shadow:
+    inset -2px -2px 0 var(--color-dark-grey),
+    inset  2px  2px 0 var(--color-white),
+    inset -4px -4px 0 var(--color-grey);
+    background-color: var(--color-light-grey);
+    color: var(--color-black);
+
+    &:last-child {
+        margin-left:auto;
+    }
+
+    width: 18px;
+    height: 17px;
+
+    padding: 0 0 5px 0;
+
+    cursor: pointer;
+}
+
+.CancelButton{
+    width: 79px;
+    height: 22px;
+
+    box-shadow:
+    inset -2px -2px 0 var(--color-dark-grey),
+    inset  2px  2px 0 var(--color-white),
+    inset -4px -4px 0 var(--color-grey);
+    background-color: var(--color-light-grey);
+
+    position: absolute;
+    justify-content: center;
+
+    top: 100px;
+
+    cursor: pointer;
 }
 
 .OpenPopupWrapper{
@@ -28,6 +102,6 @@
 }
 
 .ActivePopupWrapper {
-  z-index: 1000;
-  border: 3px solid red;
+    z-index: 1000;
+    border: 3px solid red;
 }

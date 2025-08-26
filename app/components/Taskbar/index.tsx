@@ -5,9 +5,11 @@ import styles from "./styles.module.scss";
 import Image from "next/image";
 import TaskbarItems from "@/app/components/TaskbarItems";
 import StartMenu from "@/app/components/StartMenu";
+import VolumeMenu from "@/app/components/VolumeMenu";
 
 const Taskbar = () => {
-    const [isOpen, setIsOpen] = useState(false);
+    const [startIsOpen, setStartIsOpen] = useState(false);
+    const [volumeIsOpen, setVolumeIsOpen] = useState(false);
     const[currentTime, setcurrentTime] = useState(
         new Date().toLocaleTimeString([], {hour: "2-digit", minute: "2-digit"})
     );
@@ -19,7 +21,8 @@ const Taskbar = () => {
                 taskbarRef.current &&
                 !taskbarRef.current.contains(event.target as Node)
             ) {
-                setIsOpen(false);
+                setStartIsOpen(false);
+                setVolumeIsOpen(false);
             }
         };
 
@@ -44,19 +47,24 @@ const Taskbar = () => {
     }, [])
 
     return (
-    <footer className={styles.TaskbarWrapper}>
+    <footer className={styles.TaskbarWrapper} ref={taskbarRef}>
         <button className={`
         ${styles.StartButton} 
-        ${isOpen ? styles.Pressed : ""}
+        ${startIsOpen ? styles.startPressed : ""}
         `}
-  onClick={() => setIsOpen(!isOpen)}>
+        onClick={() => setStartIsOpen(!startIsOpen)}>
             <img className={styles.Logo} src={"/Images/BetterLogo.png"}></img>
             START
         </button>
-        <StartMenu isOpen={isOpen}/>
+        <StartMenu isOpen={startIsOpen}/>
+        <VolumeMenu isOpen={volumeIsOpen}/>
         <TaskbarItems />
         <time>
-            <button className={styles.VolumeButton}>
+            <button className={`
+                ${styles.VolumeButton} 
+                ${volumeIsOpen ? styles.volumePressed : ""}
+            `}
+            onClick={() => setVolumeIsOpen(!volumeIsOpen)}>
                 <img className={styles.Volume} src="/Images/VolumeIcon.png">
                 </img>
             </button>

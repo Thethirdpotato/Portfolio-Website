@@ -1,0 +1,136 @@
+.VolumeMenuWrapper{
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+
+    width: 164px;
+    height: 274px;
+
+    right:0px;
+    bottom: 49px;
+
+    box-shadow:
+    inset -2px -2px 0 var(--color-dark-grey),
+    inset  2px  2px 0 var(--color-light-grey),
+    inset -4px -4px 0 var(--color-grey),
+    inset 4px 4px 0 var(--color-white);
+    background-color: var(--color-light-grey);
+
+    image-rendering: pixelated;
+
+    h2{
+        padding: 5px;
+        font-size: 25px;
+    }
+
+}
+
+.Open{
+    display:flex;
+}
+
+.VolumeSlider{
+    display:flex;
+    flex-direction: row;
+
+    .volumeControl{
+        position: absolute;
+        top: 58px;
+        left: 30px;
+    }
+    
+    input[type="range"]{
+        appearance: none;
+        width: 132px;
+        height: 8;
+
+        position: absolute;
+        top: 120px;
+        right: 5px;
+
+        transform: rotate(-90deg);
+        transform-origin: center;
+
+        box-shadow:
+        inset 2px -2px 0 var(--color-white),
+        inset -2px  2px 0 var(--color-grey),
+        inset 4px -4px 0 var(--color-light-grey),
+        inset 4px 4px 0 var(--color-black);
+        
+
+        cursor: pointer;
+
+        &::-webkit-slider-runnable-track {
+            height: 8px;
+        }
+
+        &::-moz-range-track {
+            height: 8px;
+        }
+
+        &::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 23px;
+            height: 43px;
+            box-shadow:
+            inset 2px -2px 0 var(--color-dark-grey),
+            inset -2px  2px 0 var(--color-white),
+            inset 4px -4px 0 var(--color-grey);
+            background-color: var(--color-light-grey);
+            margin-top: -17px;
+        }
+
+        &::-moz-range-thumb {
+            width: 23px;
+            height: 43px;
+            box-shadow:
+            inset -2px -2px 0 var(--color-dark-grey),
+            inset  2px  2px 0 var(--color-white),
+            inset -4px -4px 0 var(--color-grey);
+            background-color: var(--color-light-grey);
+            transform: translateY(-17px);
+        }
+    }
+}
+
+.MuteWrapper{
+    display:flex;
+    align-items: center;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+
+    &:last-child {
+        margin-right:auto;
+    }
+
+    span{
+        text-decoration: underline;
+    }
+
+    font-size: 25px;
+
+    input[type="checkbox"] {
+        appearance: none;
+        width: 27px;
+        height: 26px;
+
+        box-shadow:
+        inset -2px -2px 0 var(--color-white),
+        inset  2px  2px 0 var(--color-grey),
+        inset -4px -4px 0 var(--color-light-grey),
+        inset 4px 4px 0 var(--color-black);
+
+        background-color: var(--color-white);
+
+        cursor: pointer;
+
+        &:checked::after{
+            content: "✔";
+            position: absolute;
+            left: 5px;
+            font-size: 18px;
+        }
+    } 
+}

@@ -5,12 +5,18 @@
   padding:0;
   margin:0;
   
+  image-rendering: pixelated;
 }
 
 body {
   position: relative;
   max-width: 100vw;
   overflow: hidden;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 a {
