@@ -3,7 +3,7 @@ import "./globals.css";
 import "./utils/colors.scss";
 import styles from "./page.module.scss";
 import Taskbar from "./components/Taskbar";
-import { AppContextProvider } from "./utils/context";
+import { AppContextProvider} from "./utils/context";
 import localFont from "next/font/local";
 
 const MSSans = localFont({
@@ -26,7 +26,7 @@ export default function RootLayout({
       <body className={MSSans.className}>
         <AppContextProvider>
             <main id="app-wrapper" className={styles.AppWrapper}>
-              {children}
+              <div id="PageContent" className={styles.PageContent}>{children}</div>
               <Taskbar />
             </main>
         </AppContextProvider>

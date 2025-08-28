@@ -1,0 +1,25 @@
+.Page{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 550px;
+    margin: auto;
+    padding: 18px 0px 96px;
+
+    color: black;
+
+    
+
+    a{
+        color: var(--color-dark-blue);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.noPadding{
+    padding: 18px;
+}

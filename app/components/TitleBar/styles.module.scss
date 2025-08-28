@@ -1,0 +1,48 @@
+.TitleBarWrapper{
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-width: 100%;
+    height: 41px;
+
+    background-color: var(--color-dark-blue);
+
+    h2{
+        flex: 1;
+        padding: 0 12px 0 6px;
+
+        font-size: 23px;
+        color: white;
+
+        text-overflow: ellipsis;
+        overflow: hidden;
+    }
+
+    button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        box-shadow:
+        inset -2px -2px 0 var(--color-dark-grey),
+        inset  2px  2px 0 var(--color-white),
+        inset -4px -4px 0 var(--color-grey);
+        background-color: var(--color-light-grey);
+
+        height: 100%;
+        width: 33px;
+        min-width: 33px;
+
+        cursor: pointer;
+
+        &:active{
+            box-shadow:
+            inset -2px -2px 0 var(--color-white),
+            inset  2px  2px 0 var(--color-grey);
+        }
+    }
+}

@@ -77,6 +77,12 @@
     padding: 0 0 5px 0;
 
     cursor: pointer;
+
+    &:active{
+        box-shadow:
+        inset -2px -2px 0 var(--color-white),
+        inset  2px  2px 0 var(--color-grey);
+    }
 }
 
 .CancelButton{
@@ -95,6 +101,12 @@
     top: 100px;
 
     cursor: pointer;
+
+    &:active{
+        box-shadow:
+        inset -2px -2px 0 var(--color-white),
+        inset  2px  2px 0 var(--color-grey);
+    }
 }
 
 .OpenPopupWrapper{
@@ -103,5 +115,4 @@
 
 .ActivePopupWrapper {
     z-index: 1000;
-    border: 3px solid red;
 }

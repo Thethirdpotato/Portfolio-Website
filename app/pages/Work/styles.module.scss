@@ -1,0 +1,58 @@
+.WorkPage{
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    margin: auto;
+    padding: 18px 0px 96px;
+
+    color: black;
+
+    a{
+        color: var(--color-dark-blue);
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    div{
+        width: 100%;
+        padding: 0 20 0 20;
+    }
+
+    h2{
+        font-size: 30px;
+    }
+
+    hr{
+        height: 3px;
+        border: none;
+        background-color: black;
+        margin-bottom: 10px;
+    }
+
+    .resumeEmbed{
+       border: 5px solid black; 
+    }
+
+    img{
+        width:100%;
+    }
+}
+
+.SideBySide{
+    display: flex;
+    flex-direction: row;
+
+
+    ul {
+        padding: 5px;
+        list-style-type: disc;
+    }
+
+    li{
+        font-size: 22px;
+        margin-left: 15px;
+    }
+}

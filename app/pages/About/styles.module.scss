@@ -1,0 +1,72 @@
+.AboutPage{
+    display: flex;
+    margin: 50px 0 60px;
+    
+
+    p{
+        font-size: 25px;
+    }
+
+    hr{
+        height: 3px;
+        border: none;
+        background-color: black;
+        margin-bottom: 10px;
+    }
+
+    h4{
+        font-size: 32px;
+        margin-top: 30px;
+    }
+
+    ul {
+        padding: 5px;
+        list-style-type: disc;
+    }
+
+    li{
+        padding: 5px;
+        font-size: 22px;
+        margin-left: 15px;
+    }
+
+    footer{
+        padding-top: 20px;
+    }
+}
+
+.ProfilePicWrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    padding: 5px;
+
+    .SP{
+        image-rendering: pixelated;
+        image-rendering: crisp-edges;
+        width: 200px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+        border: 5px solid black;
+    }
+
+    h2{
+        font-size: 45px;
+        color: var(--color-dark-blue);
+        font-weight: bold;
+    }
+
+    h3{
+        font-size: 18px;
+    }
+
+    .StackedName{
+        display: flex;
+        flex-direction: column;
+        flex:1;
+        
+        padding: 0 6px;
+    }
+}

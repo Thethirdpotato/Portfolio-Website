@@ -11,7 +11,8 @@
     outline: 2px solid var(--color-light-grey);
     border-top: 2px solid white;
 
-    z-index:1;
+    position: relative;
+    z-index:1000;
 
     .StartButton{
     display: flex;
@@ -31,6 +32,12 @@
     cursor: pointer;
 
     image-rendering: pixelated;
+
+    &:active{
+        box-shadow:
+        inset -2px -2px 0 var(--color-white),
+        inset  2px  2px 0 var(--color-grey);
+    }
     }
 
     .startPressed{

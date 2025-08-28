@@ -1,0 +1,63 @@
+.MenuBarWrapper {
+    position: relative;
+    display: flex;
+
+    padding: 0 2px;
+
+    list-style-type: none;
+    font-size: 18px;
+
+    li {
+        position: relative;
+
+        p{
+            padding: 2px 4px;
+
+            &:hover {
+                background-color: var(--color-dark-grey);
+                color: white;
+            }
+        }
+    }
+}
+
+.Modal {
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    top:100%;
+    left: 0;
+    width: 150px;
+    
+    box-shadow:
+    inset -2px -2px 0 var(--color-dark-grey),
+    inset  2px  2px 0 var(--color-white),
+    inset -4px -4px 0 var(--color-grey);
+    background-color: var(--color-light-grey);
+
+    z-index: 1;
+
+    font-size: 15px;
+}
+
+.Tab {
+    padding: 4px 8px;
+    width: 100%;
+
+    text-align: start;
+
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: var(--color-dark-grey);
+        color: white;
+    }
+}
+
+.OpenModal {
+    display: flex;
+}
