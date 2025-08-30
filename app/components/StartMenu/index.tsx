@@ -11,6 +11,12 @@ interface Props{
     isOpen: boolean;
 }
 
+declare global {
+  interface Window {
+    __screensaverCleanup?: () => void;
+  }
+}
+
 const StartMenu = ({isOpen}: Props) =>{
     const {showNextError, volume, isMuted} = useAppContext();
     const [isSSActive, setSSActive] = useState(false);
@@ -51,11 +57,11 @@ const StartMenu = ({isOpen}: Props) =>{
 
     return () => {
       clearTimeout(startListenTimeout);
-      const cleanup = (window as any).__screensaverCleanup;
-      if (typeof cleanup === "function") {
-        cleanup();
-        delete (window as any).__screensaverCleanup;
-      }
+
+        if (typeof window.__screensaverCleanup === "function") {
+        window.__screensaverCleanup();
+        delete window.__screensaverCleanup;
+        }
     };
   }, [isSSActive]);
 
