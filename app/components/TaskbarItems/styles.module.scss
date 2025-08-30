@@ -31,6 +31,10 @@
         box-shadow:
         inset -2px -2px 0 var(--color-white),
         inset  2px  2px 0 var(--color-grey);
+
+        background-image:  repeating-linear-gradient(45deg,#bdbebd 0, #bdbebd 25%, #fff 0, #fff 50%), repeating-linear-gradient(45deg, #838383 25%, #e5e5f7 25%, #e5e5f7 75%, #838383 75%, #838383);
+        background-position: 0 0, 4px 4px;
+        background-size: 2px 2px;
     }
 }
 
@@ -38,4 +42,8 @@
     box-shadow:
         inset -2px -2px 0 var(--color-white),
         inset  2px  2px 0 var(--color-grey);
+        opacity: 0.8;
+        background-image:  repeating-linear-gradient(45deg,#bdbebd 0, #bdbebd 25%, #fff 0, #fff 50%), repeating-linear-gradient(45deg, #838383 25%, #e5e5f7 25%, #e5e5f7 75%, #838383 75%, #838383);
+        background-position: 0 0, 4px 4px;
+        background-size: 2px 2px;
 }

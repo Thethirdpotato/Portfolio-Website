@@ -55,7 +55,7 @@
         display: flex;
 
         &:hover{
-            outline: 2px dashed var(--color-dark-grey);
+            outline: 2px dashed var(--color-grey);
         }
     }
 
@@ -83,17 +83,18 @@
 }
 
 .SeparationLine{
-    width: 164px;
+    width: 160px;
     height: 5px;
 
-    background-color: var(--color-dark-grey);
+    background-color: var(--color-grey);
 
+    border: none;
     box-shadow:
     inset 0px -2px 0 var(--color-white);
 
     position: absolute;
     top: 290px;
-    left: 37px;
+    left: 40px;
 }
 
 .TextBox{
@@ -128,4 +129,10 @@
 
     width:133px;
     height: 236px;
+}
+
+.fixed {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 9999;
 }

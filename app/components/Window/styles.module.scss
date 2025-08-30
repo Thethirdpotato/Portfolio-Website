@@ -134,6 +134,9 @@
 .NoScrollWindowWrapper{
     width: 746px;
     height: 550px;
+
+    resize: none;
+    padding: 0px;
 }
 
 .ActiveWindowWrapper {
@@ -144,10 +147,10 @@
     height: 100%;
     width: 100%;
 
-    border-top: 4px solid var(--color-dark-grey);   // top "shadow"
-    border-left: 4px solid var(--color-dark-grey);  // left "shadow"
-    border-bottom: 4px solid var(--color-grey); // bottom highlight
-    border-right: 4px solid var(--color-grey); // right highlight
+    border-top: 4px solid var(--color-dark-grey);
+    border-left: 4px solid var(--color-dark-grey); 
+    border-bottom: 4px solid var(--color-grey); 
+    border-right: 4px solid var(--color-grey);
     box-sizing: border-box;
     background-color: var(--color-white);
 
@@ -161,7 +164,9 @@
 
 .NoScrollContentWrapper{
     box-shadow: none;
-    background-color: var(--color-light-grey);
+    border: none;
+    background-color: transparent;
+    padding: 5px;
 
     overflow: hidden;
 }

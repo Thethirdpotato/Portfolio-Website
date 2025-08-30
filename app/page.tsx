@@ -1,5 +1,6 @@
 import DesktopPopups from "./components/DesktopPopups";
 import DesktopIcons from "./components/DesktopIcons";
+import MobilePopup from "./components/MobilePopup";
 
 export default function Home() {
 
@@ -7,6 +8,7 @@ export default function Home() {
     <>
     <DesktopIcons />
     <DesktopPopups />
+    <MobilePopup />
     </>
   );
 }

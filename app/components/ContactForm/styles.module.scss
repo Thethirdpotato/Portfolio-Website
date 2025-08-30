@@ -1,0 +1,50 @@
+.SubmissionForm{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label{
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    input, textarea {
+        padding: 12px;
+
+        border-top: 4px solid var(--color-dark-grey);
+        border-left: 4px solid var(--color-dark-grey); 
+        border-bottom: 4px solid var(--color-grey); 
+        border-right: 4px solid var(--color-grey);
+        box-sizing: border-box;
+        background-color: var(--color-white);
+    }
+
+    textarea {
+        resize: none;
+        height: 256px;
+    }
+
+    button {
+        padding: 6px;
+        margin-top: 12px;
+
+        font-size: initial;
+
+        box-shadow:
+        inset -2px -2px 0 var(--color-dark-grey),
+        inset  2px  2px 0 var(--color-white),
+        inset -4px -4px 0 var(--color-grey);
+        background-color: var(--color-light-grey);
+
+        &:active{
+            box-shadow:
+            inset -2px -2px 0 var(--color-white),
+            inset  2px  2px 0 var(--color-grey);
+
+            background-image:  repeating-linear-gradient(45deg,#bdbebd 0, #bdbebd 25%, #fff 0, #fff 50%), repeating-linear-gradient(45deg, #838383 25%, #e5e5f7 25%, #e5e5f7 75%, #838383 75%, #838383);
+            background-position: 0 0, 4px 4px;
+            background-size: 2px 2px;
+        }
+    }
+
+}

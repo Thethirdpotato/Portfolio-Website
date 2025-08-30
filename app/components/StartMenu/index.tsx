@@ -1,8 +1,11 @@
 import styles from "./styles.module.scss";
 import Image from "next/image";
 import { useAppContext } from "@/app/utils/context";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import useSound from "use-sound";
+import confetti from "canvas-confetti";
+import {DvdScreensaver} from 'react-dvd-screensaver';
+import { createPortal } from "react-dom";
 
 interface Props{
     isOpen: boolean;
@@ -10,11 +13,16 @@ interface Props{
 
 const StartMenu = ({isOpen}: Props) =>{
     const {showNextError, volume, isMuted} = useAppContext();
+    const [isSSActive, setSSActive] = useState(false);
     const [imageSrc, setImageSrc] = useState('/Images/ClippyWave.gif')
 
     const [playShutDown] = useSound("/sounds/error.mp3", {
         volume: isMuted ? 0 : volume,
     });
+
+    const [playSleepSound] = useSound("/sounds/sleep.mp3" , {
+        volume: isMuted ? 0: volume,
+    })
 
     const [playConfetti] = useSound("/sounds/confetti.mp3", {
         volume: isMuted ? 0 : volume,
@@ -24,7 +32,70 @@ const StartMenu = ({isOpen}: Props) =>{
         setImageSrc('/Images/ClippyJump.gif');
     }
 
+    useEffect(() => {
+    if (!isSSActive) return;
+
+    const startListenTimeout = window.setTimeout(() => {
+      const stop = () => setSSActive(false);
+
+      window.addEventListener("mousemove", stop);
+      window.addEventListener("keydown", stop);
+
+      const cleanup = () => {
+        window.removeEventListener("mousemove", stop);
+        window.removeEventListener("keydown", stop);
+      };
+
+      (window as any).__screensaverCleanup = cleanup;
+    }, 200);
+
+    return () => {
+      clearTimeout(startListenTimeout);
+      const cleanup = (window as any).__screensaverCleanup;
+      if (typeof cleanup === "function") {
+        cleanup();
+        delete (window as any).__screensaverCleanup;
+      }
+    };
+  }, [isSSActive]);
+
+    const triggerConfetti = () => {
+        confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { x: 0.05, y: 0.6}
+    })
+    }
+
+    const screensaverOverlay = (
+        <div
+        style={{
+            position: "fixed",
+            inset: 0,
+            zIndex: 99999,
+            backgroundColor: "black",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            pointerEvents: "auto",
+        }}
+
+        onClick={() => setSSActive(false)}
+        >
+        <DvdScreensaver speed={3}>
+            <Image
+                src="/Images/FlyingTurtle.gif"
+                alt="Turtle logo"
+                width={140}
+                height={84}
+                unoptimized
+            />
+        </DvdScreensaver>
+        </div>
+    );
+
     return(
+        <>
         <div className={`${styles.StartMenuWrapper} ${isOpen ? styles.Open : ""}`}>
             <div className={styles.NameBoard}>
                 Raymond<span>95</span>
@@ -43,6 +114,7 @@ const StartMenu = ({isOpen}: Props) =>{
                 onClick={() => {
                     handleClick();
                     playConfetti();
+                    triggerConfetti();
                 }}
                 width={133}
                 height={236}
@@ -52,15 +124,22 @@ const StartMenu = ({isOpen}: Props) =>{
             <hr className={styles.SeparationLine}></hr>
             <ul className={styles.MenuItems}>
                 <li>
-                    <button>
-                        <Image
+                    {!isSSActive && (
+                        <button
+                            onClick={() => {
+                            setSSActive(true);
+                            playSleepSound();
+                            }}
+                        >
+                            <Image
                             src="/Images/Suspend.png"
                             alt="Suspend Icon"
                             height={43}
                             width={43}
-                        />
-                        Suspend
-                    </button>
+                            />
+                            Suspend
+                        </button>
+                    )}
                 </li>
                 <li>
                     <button onClick={() => {
@@ -78,6 +157,11 @@ const StartMenu = ({isOpen}: Props) =>{
                 </li>
             </ul>
         </div>
+
+        {typeof document !== "undefined" && isSSActive
+            ? createPortal(screensaverOverlay, document.body)
+            : null}
+        </>
     )
 }
 

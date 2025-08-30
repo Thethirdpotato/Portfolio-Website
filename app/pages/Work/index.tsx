@@ -1,6 +1,5 @@
 import styles from "./styles.module.scss";
 import Image from "next/image";
-import PageWrapper from "@/app/components/PageWrapper";
 
 const Work = () => {
     return(
@@ -35,10 +34,11 @@ const Work = () => {
                 <h2>Development</h2>
                 <hr/>
                 <Image
-                src="/Images/under-construction.png"
+                src="/Images/UnderConstruction.gif"
                 alt="temp image hope to make my own"
                 width={1080}
                 height={712}
+                unoptimized
                 />
                 <ul>
 

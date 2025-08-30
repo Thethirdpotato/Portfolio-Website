@@ -13,7 +13,7 @@
     background-color: var(--color-light-grey);
 
     width: 337px;
-    height: 154px;
+    height: auto;
 
     padding: 5px;
 
@@ -39,15 +39,12 @@
 }
 
 .body{
-    position: absolute;
-    top: 25px;
-
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
 
-    width: 300px;
+    width: 100%;
 
     padding: 10px;
 
@@ -95,10 +92,8 @@
     inset -4px -4px 0 var(--color-grey);
     background-color: var(--color-light-grey);
 
-    position: absolute;
     justify-content: center;
-
-    top: 100px;
+    margin-bottom: 10px;
 
     cursor: pointer;
 

@@ -5,6 +5,8 @@ import dynamic from "next/dynamic";
 
 const About = dynamic(() => import("@/app/pages/About"))
 const Work = dynamic(() => import("@/app/pages/Work"))
+const Links = dynamic(() => import("@/app/pages/Links"))
+const Contact = dynamic(() => import("@/app/pages/Contact"))
 
 
 interface IconData {
@@ -27,6 +29,19 @@ const iconDataList: IconData[] = [
         src: "/Images/Computer.png",
         alt: "Computer icon",
         page: <Work/>
+    },
+    {
+        name: "Links",
+        src: "/Images/NetworkNeighborhood.png",
+        alt: "NetworkNeighborhood icon",
+        page: <Links/>,
+        noScroll: true
+    },
+    {
+        name: "Contact",
+        src: "/Images/Notepad.png",
+        alt: "Notepad icon",
+        page: <Contact/>,
     },
 ]
 
