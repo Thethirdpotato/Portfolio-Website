@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState} from "react";
 import styles from "./styles.module.scss";
-import Image from "next/image";
 import TaskbarItems from "@/app/components/TaskbarItems";
+import Image from "next/image";
 import StartMenu from "@/app/components/StartMenu";
 import VolumeMenu from "@/app/components/VolumeMenu";
 
@@ -53,7 +53,11 @@ const Taskbar = () => {
         ${startIsOpen ? styles.startPressed : ""}
         `}
         onClick={() => setStartIsOpen(!startIsOpen)}>
-            <img className={styles.Logo} src={"/Images/BetterLogo.png"}></img>
+            <Image className={styles.Logo} src={"/Images/BetterLogo.png"}
+            alt="Start"
+            width={32}
+            height={32}
+            />
             START
         </button>
         <StartMenu isOpen={startIsOpen}/>
@@ -65,8 +69,13 @@ const Taskbar = () => {
                 ${volumeIsOpen ? styles.volumePressed : ""}
             `}
             onClick={() => setVolumeIsOpen(!volumeIsOpen)}>
-                <img className={styles.Volume} src="/Images/VolumeIcon.png">
-                </img>
+                <Image 
+                className={styles.Volume} 
+                src="/Images/VolumeIcon.png"
+                alt="Volume"
+                width={32}
+                height={10}
+                />
             </button>
             {currentTime}
         </time>

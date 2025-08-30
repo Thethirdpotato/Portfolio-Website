@@ -2,7 +2,7 @@ import styles from "./styles.module.scss";
 import Image from "next/image";
 import TitleBar from "@/app/components/TitleBar";
 import MenuBar from "@/app/components/MenuBar";
-import Draggable, {DraggableBounds} from "react-draggable";
+import Draggable from "react-draggable";
 import { ReactNode, useEffect, useState, useRef } from "react";
 import { useAppContext } from "@/app/utils/context";
 
@@ -96,7 +96,7 @@ const Window = ({
                     toggleMinimize={handleMinimise}
                     closeWindow={handleClose}
                 />
-                <MenuBar/>
+                <MenuBar />
                 <div 
                     className={`
                         ${styles.ContentWrapper}

@@ -25,7 +25,7 @@ const About = () => {
                     </div>
                 </div>
                 <hr/>
-                <p>Hi! I’m <strong>Raymond</strong>, a student and aspiring web developer/ programmer.</p>
+                <p>Hi! I&apos;m <strong>Raymond</strong>, a student and aspiring web developer/ programmer.</p>
                 <h4>Some Stuff About Me</h4>
                 <ul>
                     <li>I love to learn and pick up new skills,</li>
@@ -43,12 +43,12 @@ const About = () => {
                     <li>Studying languages</li>
                     <li>Physical fitness</li>
                     <li>Guitar</li>
-                    <li>Stragety games</li>
+                    <li>Strategy games</li>
                     <li>Pixel art</li>
                     <li>Crocheting</li>
                 </ul>
 
-                <footer><p>If your interested in working with me, contact me at <a href="mailto:Rzhang0325@gmail.com">Rzhang0325@gmail.com</a></p></footer>
+                <footer><p>If you&apos;re interested in working with me, contact me at <a href="mailto:Rzhang0325@gmail.com">Rzhang0325@gmail.com</a></p></footer>
             </PageWrapper>
         </article>
     );

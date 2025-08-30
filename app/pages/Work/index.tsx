@@ -35,7 +35,7 @@ const Work = () => {
                 <hr/>
                 <Image
                 src="/Images/UnderConstruction.gif"
-                alt="temp image hope to make my own"
+                alt="Turtle"
                 width={1080}
                 height={712}
                 unoptimized
