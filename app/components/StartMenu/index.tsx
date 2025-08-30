@@ -52,7 +52,6 @@ const StartMenu = ({isOpen}: Props) =>{
         window.removeEventListener("keydown", stop);
       };
 
-      (window as any).__screensaverCleanup = cleanup;
     }, 200);
 
     return () => {
