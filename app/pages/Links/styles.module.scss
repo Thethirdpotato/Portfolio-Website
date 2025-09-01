@@ -35,6 +35,12 @@
             background-color: var(--color-light-grey);
         }
 
+        @media(max-width: 768px){
+            div{
+                margin: 0px;
+            }
+        }
+
         img{
             margin-top:auto;
         }

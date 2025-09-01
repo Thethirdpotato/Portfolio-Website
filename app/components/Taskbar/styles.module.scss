@@ -42,6 +42,12 @@
         background-position: 0 0, 4px 4px;
         background-size: 2px 2px;
     }
+
+    @media (max-width:768px){
+        img{
+            display:none;
+        }
+    }
     }
 
     .startPressed{
@@ -70,9 +76,7 @@
     }
 
     .VolumeButton{
-        position:absolute;
-        right: 125px;
-
+        padding: 10px;
         cursor: pointer;
     }
 
@@ -87,7 +91,8 @@
         height: 41px;
         width: 162px;
 
-        padding: 0 0 0 75px;
+        padding: 5px;
+        
 
         font-size: inherit;
 

@@ -65,6 +65,7 @@ const Window = ({
         key={isMaximised ? "max" : "norm"}
         nodeRef={nodeRef} 
         handle=".drag-handle"
+        cancel="button, input, .no-drag"
         disabled={isMaximised}
         bounds="#PageContent"
         >

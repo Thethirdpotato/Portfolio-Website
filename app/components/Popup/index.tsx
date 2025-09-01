@@ -34,6 +34,8 @@ const Popup = ({
         setIsOpen(open);
     }, [open]);
 
+    const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
+
     useEffect(() => {
         minimisedList.includes(id)
         ? setIsMinimised(true)
@@ -50,7 +52,7 @@ const Popup = ({
     const nodeRef = useRef(null);
 
     return (
-        <Draggable nodeRef={nodeRef} bounds="#PageContent">
+        <Draggable nodeRef={nodeRef} cancel="button, input, .no-drag" bounds="#PageContent">
             <div 
                 ref={nodeRef}
                 className={`
@@ -60,7 +62,7 @@ const Popup = ({
                 ${active === id ? styles.ActivePopupWrapper : ""}
                 `} 
                 style={{
-                    top: `calc(40px + (${index} * 12px))`,
+                    top: isMobile ? "80px" : `calc(40px + (${index} * 12px))`,
                     left: `calc(40px + (${index} * 12px))`,
                 }}
                 onClick={() => {

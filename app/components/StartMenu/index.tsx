@@ -47,11 +47,6 @@ const StartMenu = ({isOpen}: Props) =>{
       window.addEventListener("mousemove", stop);
       window.addEventListener("keydown", stop);
 
-      const cleanup = () => {
-        window.removeEventListener("mousemove", stop);
-        window.removeEventListener("keydown", stop);
-      };
-
     }, 200);
 
     return () => {
